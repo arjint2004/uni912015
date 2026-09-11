@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','session','smsprivate','ak_db','myencr
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('html','form','url','file','global','akademik');
+$autoload['helper'] = array('html','form','url','file','global','akademik','module');
 
 
 /*

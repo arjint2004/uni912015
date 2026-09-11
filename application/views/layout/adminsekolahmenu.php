@@ -1,7 +1,8 @@
 					<?
 					$fitur=fitur_sekolah();
 					?>
-					<ul class="side-nav">						
+					<ul class="side-nav">
+                    	<li <? if($this->router->class=='modul'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>akademik/modul" title=""> Tampilan Module <span> </span> </a> </li>
                     	<li <? if($this->router->class=='schooladmin' && $this->router->method=='ubahpassword'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>admin/schooladmin/ubahpassword" title=""> Ubah Password Admin <span> </span> </a> </li>
                     	<li <? if($this->router->class=='schooladmin' && $this->router->method=='dataakun'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>admin/schooladmin/dataakun" title="">Data Akun<span> </span> </a> </li>
                     	<li <? if($this->router->class=='kepsek' && $this->router->method=='index'){echo 'class="current_page_item"';}?>> <a target="__blank" href="<?=site_url()?>akademik/kepsek/index" title=""> Data Monitor Guru<span> </span> </a> </li>

@@ -7,6 +7,7 @@
 							});
 					</script>
 					<ul class="side-nav">
+                        <li <? if($this->router->class=='modul'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>akademik/modul" title="" id="ta"> TAMPILAN MODULE <span> </span> </a> </li>
                         <li <? if($this->router->class=='artikel' && $this->router->method=='index'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>adminsb/artikel/index" title="" id="ta"> KONTENT ARTIKEL <span> </span> </a> </li>
                         <li <? if($this->router->class=='admin' && $this->router->method=='homecontrol'){echo 'class="current_page_item"';}?>> <a href="<?=site_url()?>adminsb/admin/homecontrol" title="" id="ta"> HOME CONTROL <span> </span> </a> </li>
                     </ul>
