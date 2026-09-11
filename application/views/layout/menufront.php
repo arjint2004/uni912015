@@ -37,6 +37,7 @@
 								<li class="current_page_item rightf"> <span class="hoverL"> <span class="hoverR"> </span> </span> <a style="cursor:pointer;" href="<?=$url_redirect?>" title=""> Dashboard </a>
 								<ul><?=akademiknotiftop()?></ul>
 								</li>
+								<li class="current_page_item rightf"> <span class="hoverL"> <span class="hoverR"> </span> </span> <a style="cursor:pointer;" href="<?=site_url('akademik/modul')?>" title=""> Module </a></li>
 								<li class="current_page_item rightf"> <span class="hoverL"> <span class="hoverR"> </span> </span> <a style="cursor:pointer;" href="<?php echo base_url();?>admin/login/logout" title=""> Keluar </a></li>
 				<? } ?>
                 <!--<li> <span class="hoverL"> <span class="hoverR"> </span> </span> <a href="<?=site_url('homedata/artikel')?>" title=""> Artikel </a></li> -->

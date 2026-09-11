@@ -294,6 +294,11 @@ if($cek['otoritas']=='siswa' || $cek['otoritas']=='ortu') {
         <a  href="<?=$url_sos?>" class="button medium tombol_parent light-grey">JEJARING SOSIAL</a>
     </div>
 </div>
+<div class="column one-full" style="clear:both;">
+    <div class="buttons">
+        <a href="<?=site_url('akademik/modul')?>" class="tombol_parent button medium light-grey">DAFTAR MODULE</a>
+    </div>
+</div>
 <div class="portfolio column-one-half-with-sidebar">
     <div class="hr bottomutsofile"></div>
 	<br />

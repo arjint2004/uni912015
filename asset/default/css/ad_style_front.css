@@ -535,3 +535,18 @@ form#simpanbiodata table tr td input{width:200px;}
 	table.penghubungortutk tr td.aspekpenilai{
 		width:10%;
 	}
+
+.modul-intro { color:#666; margin:0 0 16px; }
+.modul-toolbar { overflow:hidden; margin:0 0 18px; }
+.modul-cari { width:70%; max-width:360px; padding:8px 10px; border:1px solid #d7d7d7; border-radius:4px; }
+.modul-count { float:right; color:#888; font-size:12px; padding-top:8px; }
+.modul-kategori { margin:0 0 22px; }
+.modul-kategori-title { margin:0 0 10px; font-size:15px; color:#2b4c7e; border-bottom:1px solid #e6e6e6; padding-bottom:6px; }
+.modul-grid { overflow:hidden; }
+.modul-card { display:block; float:left; width:30%; margin:0 3% 12px 0; min-height:92px; padding:12px; background:#f7f7f7; border:1px solid #e0e0e0; border-left:4px solid #3b6ea5; border-radius:4px; text-decoration:none; color:#444; box-sizing:border-box; }
+.modul-card:nth-child(3n) { margin-right:0; }
+.modul-card:hover { background:#eef4fb; border-color:#3b6ea5; color:#222; }
+.modul-badge { display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; background:#3b6ea5; color:#fff; border-radius:3px; font-size:12px; font-weight:bold; margin-right:6px; }
+.modul-nama { font-weight:bold; font-size:13px; }
+.modul-desc { display:block; margin-top:6px; font-size:12px; color:#777; line-height:1.35; }
+.modul-empty { padding:20px; background:#fafafa; border:1px dashed #ccc; color:#888; }
