@@ -23,54 +23,64 @@
 	.modul-card, .modul-card:nth-child(2n), .modul-card:nth-child(3n) { width:100%; margin-right:0; }
 }
 </style>
-<? if ( ! empty($show_profile)) { ?>
-<?=$this->load->view('akademik/mainakademik/topindex')?>
-<? } ?>
+<?php if ( ! empty($show_profile)) {
+	$this->load->view('akademik/mainakademik/topindex');
+} ?>
 
 <div class="portfolio column-one-half-with-sidebar">
 	<h3>Tampilan Module</h3>
 	<div class="hr"></div>
-	<p class="modul-intro">Daftar module yang dapat Anda akses sebagai <strong><?=htmlspecialchars($role === '' ? 'pengguna' : $role, ENT_QUOTES, 'UTF-8')?></strong>. Klik kartu untuk membuka module.</p>
+	<p class="modul-intro">Daftar module yang dapat Anda akses sebagai <strong><?php echo htmlspecialchars($role === '' ? 'pengguna' : $role, ENT_QUOTES, 'UTF-8'); ?></strong>. Klik kartu untuk membuka module.</p>
 
-	<? if (empty($grouped)) { ?>
+	<?php if (empty($grouped)) { ?>
 		<div class="modul-empty">Belum ada module yang tersedia untuk peran ini.</div>
-	<? } else { ?>
+	<?php } else { ?>
 		<div class="modul-toolbar">
 			<input type="text" id="modul-cari" class="modul-cari" placeholder="Cari module..." autocomplete="off" />
-			<span class="modul-count"><?=count($modules)?> module</span>
+			<span class="modul-count"><?php echo count($modules); ?> module</span>
 		</div>
 
-		<? foreach ($grouped as $kategori => $items) { ?>
-			<div class="modul-kategori" data-kategori="<?=htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8')?>">
-				<h4 class="modul-kategori-title"><?=htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8')?></h4>
+		<?php foreach ($grouped as $kategori => $items) { ?>
+			<div class="modul-kategori" data-kategori="<?php echo htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8'); ?>">
+				<h4 class="modul-kategori-title"><?php echo htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8'); ?></h4>
 				<div class="modul-grid">
-					<? foreach ($items as $modul) {
+					<?php foreach ($items as $modul) {
 						$huruf = strtoupper(substr($modul['nama'], 0, 1));
 					?>
-					<a class="modul-card" href="<?=$modul['url']?>" data-nama="<?=htmlspecialchars(strtolower($modul['nama'].' '.$modul['deskripsi'].' '.$kategori), ENT_QUOTES, 'UTF-8')?>">
-						<span class="modul-badge"><?=$huruf?></span>
-						<span class="modul-nama"><?=htmlspecialchars($modul['nama'], ENT_QUOTES, 'UTF-8')?></span>
-						<span class="modul-desc"><?=htmlspecialchars($modul['deskripsi'], ENT_QUOTES, 'UTF-8')?></span>
+					<a class="modul-card" href="<?php echo $modul['url']; ?>" data-nama="<?php echo htmlspecialchars(strtolower($modul['nama'].' '.$modul['deskripsi'].' '.$kategori), ENT_QUOTES, 'UTF-8'); ?>">
+						<span class="modul-badge"><?php echo $huruf; ?></span>
+						<span class="modul-nama"><?php echo htmlspecialchars($modul['nama'], ENT_QUOTES, 'UTF-8'); ?></span>
+						<span class="modul-desc"><?php echo htmlspecialchars($modul['deskripsi'], ENT_QUOTES, 'UTF-8'); ?></span>
 					</a>
-					<? } ?>
+					<?php } ?>
 				</div>
 			</div>
-		<? } ?>
-	<? } ?>
+		<?php } ?>
+	<?php } ?>
 </div>
 
 <script>
 $(document).ready(function() {
-	$('#modul-cari').bind('keyup', function() {
+	$('#modul-cari').bind('keyup input', function() {
 		var q = $.trim($(this).val()).toLowerCase();
 		var visible = 0;
+		$('.modul-kategori').show();
 		$('.modul-card').each(function() {
-			var match = q === '' || $(this).attr('data-nama').indexOf(q) !== -1;
-			$(this).toggle(match);
-			if (match) { visible++; }
+			var nama = $(this).attr('data-nama') || '';
+			var match = (q === '' || nama.indexOf(q) !== -1);
+			if (match) {
+				$(this).show();
+				visible++;
+			} else {
+				$(this).hide();
+			}
 		});
 		$('.modul-kategori').each(function() {
-			$(this).toggle($(this).find('.modul-card:visible').length > 0);
+			var n = 0;
+			$(this).find('.modul-card').each(function() {
+				if ($(this).css('display') !== 'none') { n++; }
+			});
+			if (n > 0) { $(this).show(); } else { $(this).hide(); }
 		});
 		$('.modul-count').text(visible + ' module');
 	});
